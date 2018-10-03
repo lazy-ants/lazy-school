@@ -1,0 +1,9 @@
+{
+    "title": "Home page",
+    "greetings": {
+        "hello": "Hello"
+    },
+    "actions": {
+        "open-menu": "Swipe to the right to open the menu"
+    }
+}
