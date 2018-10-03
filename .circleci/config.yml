@@ -79,10 +79,32 @@ jobs:
             - run:
                 name: Unit Testing
                 command: cd project/application && npm run test -- --watch=false
+    # The deploy job
+    deploy:
+        machine:
+            enabled: true
+        environment:
+            FINGERPRINT: fd:7f:a9:ca:47:78:c5:86:af:eb:76:81:e1:22:5e:a9
+            SSH_USER: la
+            SSH_HOST: lazy-school.lazy-ants.com
+        steps:
+            - add_ssh_keys:
+                fingerprints:
+                    - "$FINGERPRINT" #https://circleci.com/docs/2.0/add-ssh-key
+            - run:
+                name: Deploy Over SSH
+                command: |
+                    ssh $SSH_USER@$SSH_HOST "cd /var/www/lazy-school && git status && git checkout -- . && git pull origin master && bash deploy-circleci.sh"
 
 workflows:
     version: 2
-    # The build and test
-    build-test:
+    # The build, test and deploy
+    build-test_deploy:
         jobs:
             - build-test
+            - deploy:
+                requires:
+                    - build-test
+                filters:
+                    branches:
+                        only: master
