@@ -1,7 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { TransferState } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { TransferHttpService } from '@gorniv/ngx-transfer-http';
 import { MDBBootstrapModulesPro, MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 
@@ -20,7 +21,7 @@ describe('HomeComponent', () => {
     let fixture: ComponentFixture<HomeComponent>;
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [SharedModule, I18nModule, MDBBootstrapModulesPro.forRoot()],
+            imports: [SharedModule, I18nModule, MDBBootstrapModulesPro.forRoot(), RouterTestingModule],
             declarations: [HomeComponent],
             providers: [
                 {
@@ -35,6 +36,9 @@ describe('HomeComponent', () => {
                                     title: true,
                                 },
                             },
+                        },
+                        fragment: {
+                            subscribe: (fn: (value: Params) => void) => fn({}),
                         },
                     },
                 },
@@ -56,10 +60,5 @@ describe('HomeComponent', () => {
     it('should create the app', async(() => {
         const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
-    }));
-    it('should render h1 tag', async(() => {
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h1').textContent).toContain('Привет');
     }));
 });

@@ -1,79 +1,211 @@
-<div class="wrapper" (swipeleft)="sidenav.hide()" (swiperight)="sidenav.show()">
-    <h1>{{ 'greetings.hello' | translate:lang }}</h1>
-    <p>{{ 'actions.open-menu' | translate:lang }}</p>
+
+<div mdbModal #lectory="mdbModal" class="modal fade left" id="frameModalLectory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content my-modal">
+            <button type="button" class="close my-modal__close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body mx-3">
+                <div class="heading">
+                    <div class="heading__title">{{ 'modal.lectory.title' | translate:lang }}</div>
+                    <div class="heading__subtitle">{{ 'modal.lectory.subtitle' | translate:lang }}</div>
+                </div>
+                <div class="my-modal__content">
+                    <div class="md-form mb-5">
+                        <p class="label">{{ 'modal.form.name' | translate:lang }}</p>
+                        <input type="email" id="defaultForm-email" [formControl]="lectoryFormModalName" class="form-control validate inputfield px-3 inputfield-blue" mdbInputDirective>
+                    </div>
+                    <div class="md-form mb-4">
+                        <p class="label">{{ 'modal.form.phone' | translate:lang }}</p>
+                        <input type="tel" id="defaultForm-pass" [formControl]="lectoryFormModalPhone" class="form-control validate inputfield px-3 inputfield-blue" mdbInputDirective>
+                    </div>
+                </div>
+                <button (click)="frame.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button blue-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- Sidebar navigation -->
-<mdb-side-nav #sidenav class="fixed" [fixed]="true">
-    <!-- Logo -->
-    <li>
-        <div class="logo-wrapper waves-light">
-            <a href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center"></a>
-        </div>
-    </li>
-    <!--/. Logo -->
-    <!--Social-->
-    <li>
-        <ul class="social">
-            <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
-            <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>
-            <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
-            <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
-        </ul>
-    </li>
-    <!--/Social-->
-    <!--Search Form-->
-    <li>
-        <form class="search-form" role="search">
-            <div class="form-group md-form waves-light" mdbWavesEffect>
-                <input type="text" class="form-control" placeholder="Search">
+<div mdbModal #conference="mdbModal" class="modal fade left" id="frameModalConference" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content my-modal">
+            <button type="button" class="close my-modal__close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body mx-3">
+                <div class="heading">
+                    <div class="heading__title">{{ 'modal.conference.title' | translate:lang }}</div>
+                    <div class="heading__subtitle">{{ 'modal.conference.subtitle' | translate:lang }}</div>
+                </div>
+                <div class="my-modal__content">
+                    <div class="md-form mb-5">
+                        <p class="label">{{ 'modal.form.name' | translate:lang }}</p>
+                        <input type="email" id="defaultForm-email" [formControl]="conferenceFormModalName" class="form-control validate inputfield px-3 inputfield-green" mdbInputDirective>
+                    </div>
+                    <div class="md-form mb-4">
+                        <p class="label">{{ 'modal.form.phone' | translate:lang }}</p>
+                        <input type="tel" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control validate inputfield px-3 inputfield-green" mdbInputDirective>
+                    </div>
+                </div>
+                <button (click)="frame.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button green-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
             </div>
-        </form>
-    </li>
-    <!--/.Search Form-->
-    <!-- Side navigation links -->
-    <li>
-        <ul class="collapsible collapsible-accordion">
-            <mdb-accordion [multiple]="false" aria-multiselectable="false">
+        </div>
+    </div>
+</div>
 
-                <!-- Collapsible link -->
-                <mdb-accordion-item>
-                    <mdb-accordion-item-head mdbWavesEffect><i class="fa fa-chevron-right"></i> Collapsible menu</mdb-accordion-item-head>
-                    <mdb-accordion-item-body>
-                        <ul>
-                            <li><a href="#" class="waves-effect" mdbWavesEffect>Link 1</a></li>
-                            <li><a href="#" class="waves-effect" mdbWavesEffect>Link 2</a></li>
-                        </ul>
-                    </mdb-accordion-item-body>
-                </mdb-accordion-item>
-
-                <!-- Simple link -->
-                <mdb-accordion-item class="no-collase">
-                    <mdb-accordion-item-head mdbWavesEffect><i class="fa fa-hand-pointer-o"></i> Simple link</mdb-accordion-item-head>
-                    <mdb-accordion-item-body></mdb-accordion-item-body>
-                </mdb-accordion-item>
-
-                <!-- Collapsible link -->
-                <mdb-accordion-item>
-                    <mdb-accordion-item-head mdbWavesEffect><i class="fa fa-eye"></i> Collapsible menu 2</mdb-accordion-item-head>
-                    <mdb-accordion-item-body>
-                        <ul>
-                            <li><a href="#" class="waves-effect" mdbWavesEffect>Link 1</a></li>
-                            <li><a href="#" class="waves-effect" mdbWavesEffect>Link 2</a></li>
-                        </ul>
-                    </mdb-accordion-item-body>
-                </mdb-accordion-item>
-
-                <!-- Simple link -->
-                <mdb-accordion-item class="no-collase">
-                    <mdb-accordion-item-head mdbWavesEffect><i class="fa fa-diamond"></i> Simple link 2</mdb-accordion-item-head>
-                    <mdb-accordion-item-body></mdb-accordion-item-body>
-                </mdb-accordion-item>
-
-            </mdb-accordion>
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ie-nav" [containerInside]="true">
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" (click)="scrollToTheElement('about')"><img src="assets/images/logo.svg" alt="lazy-school" (click)="scrollToFragment('about-us')"></a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'about-us'}">
+                <a class="nav-link" (click)="scrollToFragment('about-us')">{{ 'nav.about-us' | translate:lang }}</a>
+            </li>
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'rent'}">
+                <a class="nav-link" (click)="scrollToFragment('rent')">{{ 'nav.rent' | translate:lang }}</a>
+            </li>
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'master-classes'}">
+                <a class="nav-link" (click)="scrollToFragment('master-classes')">{{ 'nav.master-classes' | translate:lang }}</a>
+            </li>
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'contacts'}">
+                <a class="nav-link" (click)="scrollToFragment('contacts')">{{ 'nav.contacts' | translate:lang }}</a>
+            </li>
         </ul>
-    </li>
-    <!--/. Side navigation links -->
-    <div class="sidenav-bg mask-strong"></div>
-</mdb-side-nav>
-<!--/. Sidebar navigation -->
+    </links>
+</mdb-navbar>
+
+<main class="main">
+    <div class="container" in-view-container (inview)="isElementInView($event)" [bestMatch]="true">
+        <div class="row mt-5 pt-lg-5 pt-0">
+            <div class="col text-center">
+                <section id="about-us" class="about-us" (appAppear)="setAnimationOnScroll('aboutUs')" in-view-item [data]="'about-us'">
+                    <div class="row">
+                        <div class="col col-12 col-lg-7 p-0">
+                            <div class="about-us__photo animation" [ngClass]="{'fadeInRightBig': aboutUs}">
+                                <img class="image" src="assets/images/classroom.svg" alt="class-room">
+                            </div>
+                        </div>
+                        <div class="col col-12 col-lg-5">
+                            <div class="row mt-lg-5 about-us__description">
+                                <div class="col col-12 animation" [ngClass]="{'fadeInUpBig': aboutUs}">
+                                    <p class="subtitle">{{ 'about-us.subtitle' | translate:lang }}</p>
+                                    <p class="title">{{ 'about-us.title' | translate:lang }}</p>
+                                    <p class="text">{{ 'about-us.main-text' | translate:lang }}</p>
+                                    <p class="text">{{ 'about-us.adittional-text' | translate:lang }}</p>
+                                    <button (click)="scrollToFragment('rent')" mdbBtn type="button" color="primary" rounded="true" class="waves-light button animation infinite" mdbWavesEffect [ngClass]="{'pulse': aboutUs}">{{ 'about-us.button-title' | translate:lang }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="rent" class="rent" in-view-item [data]="'rent'">
+                    <div class="row rent__description">
+                        <div class="col col-12">
+                            <div class="row justify-content-center">
+                                <div class="heading__content col-lg-auto">
+                                    <p class="subtitle ml-lg-3">{{ 'rent.subtitle' | translate:lang }}</p>
+                                    <p class="title ml-lg-3">{{ 'rent.title' | translate:lang }}</p>
+                                    <p class="text">{{ 'rent.main-text' | translate:lang }} <span class="text__star">*</span> </p>
+                                </div>
+                            </div>
+                            <div class="row mt-lg-5">
+                                <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation" [ngClass]="{'rotateInDownLeft': rentLectory, 'visible': rentLectory}">
+                                    <div class="square blue-border">
+                                        <p class="price blue-text">{{ 'rent.lectory-price' | translate:lang }} <span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
+                                        <div>
+                                            <p class="title">{{ 'rent.lectory' | translate:lang }}</p>
+                                            <p class="persons">{{ 'rent.per' | translate:lang }} {{ 'rent.lectory-quantity' | translate:lang }} {{ 'rent.persons' | translate:lang }}</p>
+                                            <button (click)="lectory.show()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button blue-button" mdbWavesEffect>{{ 'rent.button-title' | translate:lang }}</button>
+                                        </div>
+                                        <div (appAppear)="setAnimationOnScroll('rentLectory')"></div>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation" [ngClass]="{'rotateInDownRight': rentConference, 'visible': rentConference}">
+                                    <div class="square green-border">
+                                        <p class="price green-text">{{ 'rent.conference-price' | translate:lang }}<span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
+                                        <div>
+                                            <p class="title">{{ 'rent.conference' | translate:lang }}</p>
+                                            <p class="persons">{{ 'rent.per' | translate:lang }} {{ 'rent.conference-quantity' | translate:lang }} {{ 'rent.persons' | translate:lang }}</p>
+                                            <button (click)="conference.show()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button green-button" mdbWavesEffect>{{ 'rent.button-title' | translate:lang }}</button>
+                                        </div>
+                                        <div (appAppear)="setAnimationOnScroll('rentConference')"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="master-classes" class="master-classes" (appAppear)="setAnimationOnScroll('master-classes')" in-view-item [data]="'master-classes'">
+                    <div class="row master-classes__description justify-content-center">
+                        <div class="col col-12 d-lg-flex d-block justify-content-center align-items-center flex-lg-column">
+                            <div class="twrap">
+                                <div class="subtitle">{{ 'master-classes.subtitle' | translate:lang }}</div>
+                                <div class="title">{{ 'master-classes.title' | translate:lang }}</div>
+                            </div>
+                            <p class="text">{{ 'master-classes.main-text' | translate:lang }}</p>
+                            <p class="text__adittional">{{ 'master-classes.adittional-text' | translate:lang }}</p>
+                        </div>
+                    </div>
+                    <div class="row" (appAppear)="setAnimationOnScroll('masterContent')">
+                        <div class="col col-12 col-lg-10 square m-auto invis animation" [ngClass]="{'zoomIn': masterContent, 'visible': masterContent}">
+                            <div class="row h-100">
+                                <div class="col col-12 mt-5 square__content invis animation" [ngClass]="{'fadeInRightBig': masterPhone, 'visible': masterEmail}">
+                                    <div class="square__title text-right">{{ 'master-classes.phone-me' | translate:lang }}</div>
+                                    <div class="square__text text-right" (appAppear)="setAnimationOnScroll('masterPhone')">{{ 'phone' | translate:lang }}</div>
+                                </div>
+                                <div class="col col-12 mt-auto mb-5 square__content invis animation" [ngClass]="{'fadeInLeftBig': masterEmail, 'visible': masterEmail}">
+                                    <div class="square__title text-left">{{ 'master-classes.mail-me' | translate:lang }}</div>
+                                    <div class="square__text text-left" (appAppear)="setAnimationOnScroll('masterEmail')">{{ 'email' | translate:lang }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="contacts" class="contacts" (appAppear)="setAnimationOnScroll('contacts')" in-view-item [data]="'contacts'">
+                    <div class="row contacts__description">
+                        <div class="col col-12 d-lg-flex d-block justify-content-center align-items-center flex-lg-column">
+                            <div class="twrap">
+                                <div class="subtitle">{{ 'contacts.subtitle' | translate:lang }}</div>
+                                <div class="title">{{ 'contacts.title' | translate:lang }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row position-relative contacts__map-wrapper">
+                        <div class="col col-12 col-lg-10 pr-lg-5 p-0">
+                            <agm-map class="contacts__map" [latitude]="lat" [longitude]="lng" [disableDefaultUI]="true">
+                                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                            </agm-map>
+                        </div>
+                        <div (appAppear)="setAnimationOnScroll('mapDescription')"></div>
+                        <div class="col col-12 col-lg-4 position-absolute contacts__text">
+                            <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation" [ngClass]="{'jackInTheBox': mapDescription, 'visible': masterEmail}">
+                                <div class="square__title">{{ 'contacts.phone' | translate:lang }}</div>
+                                <div class="square__text">{{ 'phone' | translate:lang }}</div>
+                                <div class="square__title mt-4">{{ 'contacts.mail' | translate:lang }}</div>
+                                <div class="square__text">{{ 'email' | translate:lang }}</div>
+                                <div class="square__title mt-4">{{ 'contacts.work-time' | translate:lang }}</div>
+                                <div class="square__text">{{ 'contacts.from' | translate:lang }} {{ 'time-from' | translate:lang }} {{ 'contacts.to' | translate:lang }} {{ 'time-to' | translate:lang }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="page-footer font-small white">
+    <div class="container">
+        <div class="row mb-5 mt-5 justify-content-lg-between">
+            <div class="col col-12 col-lg-4 d-flex justify-content-center">
+                <img src="assets/images/logo.svg" alt="lazy-school">
+            </div>
+            <div class="col col-12 col-lg-4 black-text d-inline-flex d-flex justify-content-center mt-2 mt-lg-0">
+                <a class="nav-link"><i class="fa fa-4x fa-facebook"></i></a>
+                <a class="nav-link"><i class="fa fa-4x fa-twitter"></i></a>
+                <a class="nav-link"><i class="fa fa-4x fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>

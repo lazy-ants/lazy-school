@@ -4,12 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NotFoundComponent } from './not-found.component';
 import { CoreModule } from '../core/core.module';
+import { I18nModule } from '../i18n/i18n.module';
 
 describe('NotFoundComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [NotFoundComponent],
-            imports: [CoreModule, RouterTestingModule],
+            imports: [CoreModule, I18nModule, RouterTestingModule],
             providers: [
                 {
                     provide: ActivatedRoute,

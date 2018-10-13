@@ -5,7 +5,11 @@ export class AppPage {
         return browser.get('/');
     }
 
-    getParagraphText() {
-        return element(by.css('app-root h1')).getText();
+    getHeaderLogo() {
+        return element.all(by.css('img[src="assets/images/logo.svg"')).first();
+    }
+
+    getFooterLogo() {
+        return element.all(by.css('img[src="assets/images/logo.svg"')).last();
     }
 }

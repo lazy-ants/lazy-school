@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TransferHttpModule } from '@gorniv/ngx-transfer-http';
 
 import { RoutingModule } from '../routing/routing.module';
+import { SharedModule } from '../shared/shared.module';
+
+import { NgInviewModule } from 'angular-inport';
 
 @NgModule({
     imports: [
@@ -11,7 +14,9 @@ import { RoutingModule } from '../routing/routing.module';
         BrowserTransferStateModule,
         BrowserAnimationsModule,
         RoutingModule,
+        SharedModule,
         TransferHttpModule,
+        NgInviewModule,
     ],
 })
 export class CoreModule {}

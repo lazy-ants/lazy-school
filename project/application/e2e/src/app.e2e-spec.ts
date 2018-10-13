@@ -7,8 +7,13 @@ describe('workspace-project App', () => {
         page = new AppPage();
     });
 
-    it('should display welcome message', () => {
+    it('should display header logo', () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toEqual('Привет');
+        expect(page.getHeaderLogo().getAttribute('alt')).toEqual('lazy-school');
+    });
+
+    it('should display footer logo', () => {
+        page.navigateTo();
+        expect(page.getFooterLogo().getAttribute('alt')).toEqual('lazy-school');
     });
 });
