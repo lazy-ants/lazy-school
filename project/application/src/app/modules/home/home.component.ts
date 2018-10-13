@@ -11,6 +11,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Language } from 'angular-l10n';
+import { FormControl, Validators } from '@angular/forms';
 
 import { SeoPropertiesService } from '../core/services/seo-properties/seo-properties.service';
 
@@ -28,7 +29,22 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
     lat = 51.678418;
     lng = 7.809007;
 
-    aboutUs = false;
+    frame: any;
+
+    animation = {
+        aboutUs: false,
+        rentLectory: false,
+        rentConference: false,
+        masterContent: false,
+        masterPhone: false,
+        masterEmail: false,
+        mapDescription: false
+    }
+
+    lectoryFormModalName = new FormControl('', Validators.required);
+    lectoryFormModalPhone = new FormControl('', Validators.required);
+    conferenceFormModalName = new FormControl('', Validators.required);
+    loginFormModalPassword = new FormControl('', Validators.required);
 
     constructor(
         private router: Router,
@@ -72,7 +88,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
     }
 
     public setAnimationOnScroll(section) {
-        this[section] = true;
+        this.animation[section] = true;
     }
 
     public scrollToFragment(fragment) {
