@@ -1,26 +1,26 @@
 
 <div mdbModal #lectory="mdbModal" class="modal fade left" id="frameModalLectory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content my-modal">
-            <button type="button" class="close my-modal__close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+        <div class="modal-content my-modal m-4 m-md-auto">
+            <button type="button" class="close my-modal__close" data-dismiss="modal" aria-label="Close" (click)="lectory.hide()">
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal-body mx-3">
                 <div class="heading">
-                    <div class="heading__title">{{ 'modal.lectory.title' | translate:lang }}</div>
-                    <div class="heading__subtitle">{{ 'modal.lectory.subtitle' | translate:lang }}</div>
+                    <div class="heading__title text-center mb-3">{{ 'modal.lectory.title' | translate:lang }}</div>
+                    <div class="heading__subtitle text-center mb-3">{{ 'modal.lectory.subtitle' | translate:lang }}</div>
                 </div>
-                <div class="my-modal__content">
-                    <div class="md-form mb-5">
+                <div class="my-modal__content mb-4 mb-md-1">
+                    <div class="md-form m-0">
                         <p class="label">{{ 'modal.form.name' | translate:lang }}</p>
-                        <input type="email" id="defaultForm-email" [formControl]="lectoryFormModalName" class="form-control validate inputfield px-3 inputfield-blue" mdbInputDirective>
+                        <input type="email" id="defaultForm-email" [formControl]="lectoryFormModalName" class="form-control validate inputfield px-3 inputfield-blue mb-1 mb-md-3" mdbInputDirective>
                     </div>
-                    <div class="md-form mb-4">
+                    <div class="md-form mb-md-4 m-0">
                         <p class="label">{{ 'modal.form.phone' | translate:lang }}</p>
-                        <input type="tel" id="defaultForm-pass" [formControl]="lectoryFormModalPhone" class="form-control validate inputfield px-3 inputfield-blue" mdbInputDirective>
+                        <input type="tel" id="defaultForm-pass" [formControl]="lectoryFormModalPhone" class="form-control validate inputfield px-3 inputfield-blue mb-1 mb-md-3" mdbInputDirective>
                     </div>
                 </div>
-                <button (click)="frame.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button blue-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
+                <button (click)="lectory.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button blue-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
             </div>
         </div>
     </div>
@@ -28,26 +28,26 @@
 
 <div mdbModal #conference="mdbModal" class="modal fade left" id="frameModalConference" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content my-modal">
-            <button type="button" class="close my-modal__close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+        <div class="modal-content my-modal m-4 m-md-auto">
+            <button type="button" class="close my-modal__close" data-dismiss="modal" aria-label="Close" (click)="conference.hide()">
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal-body mx-3">
                 <div class="heading">
-                    <div class="heading__title">{{ 'modal.conference.title' | translate:lang }}</div>
-                    <div class="heading__subtitle">{{ 'modal.conference.subtitle' | translate:lang }}</div>
+                    <div class="heading__title text-center mb-3">{{ 'modal.conference.title' | translate:lang }}</div>
+                    <div class="heading__subtitle text-center mb-3">{{ 'modal.conference.subtitle' | translate:lang }}</div>
                 </div>
-                <div class="my-modal__content">
-                    <div class="md-form mb-5">
+                <div class="my-modal__content mb-4 mb-md-1">
+                    <div class="md-form m-0">
                         <p class="label">{{ 'modal.form.name' | translate:lang }}</p>
-                        <input type="email" id="defaultForm-email" [formControl]="conferenceFormModalName" class="form-control validate inputfield px-3 inputfield-green" mdbInputDirective>
+                        <input type="email" id="defaultForm-email" [formControl]="conferenceFormModalName" class="form-control validate inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective>
                     </div>
-                    <div class="md-form mb-4">
+                    <div class="md-form mb-md-4 m-0">
                         <p class="label">{{ 'modal.form.phone' | translate:lang }}</p>
-                        <input type="tel" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control validate inputfield px-3 inputfield-green" mdbInputDirective>
+                        <input type="tel" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control validate inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective>
                     </div>
                 </div>
-                <button (click)="frame.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button green-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
+                <button (click)="conference.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button green-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
             <div class="col text-center">
                 <section id="about-us" class="about-us" (appAppear)="setAnimationOnScroll('aboutUs')" in-view-item [data]="'about-us'">
                     <div class="row">
-                        <div class="col col-12 col-lg-7 p-0">
+                        <div class="col col-12 col-lg-7 p-0 no-overflow">
                             <div class="about-us__photo animation" [ngClass]="{'fadeInRightBig': animation.aboutUs}">
                                 <img class="image" src="assets/images/classroom.svg" alt="class-room">
                             </div>
@@ -109,7 +109,7 @@
                                     <p class="text">{{ 'rent.main-text' | translate:lang }} <span class="text__star">*</span> </p>
                                 </div>
                             </div>
-                            <div class="row mt-lg-5">
+                            <div class="row mt-lg-5 no-overflow">
                                 <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation" [ngClass]="{'rotateInDownLeft': animation.rentLectory, 'visible': animation.rentLectory}">
                                     <div class="square blue-border">
                                         <p class="price blue-text">{{ 'rent.lectory-price' | translate:lang }} <span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
@@ -118,10 +118,10 @@
                                             <p class="persons">{{ 'rent.per' | translate:lang }} {{ 'rent.lectory-quantity' | translate:lang }} {{ 'rent.persons' | translate:lang }}</p>
                                             <button (click)="lectory.show()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button blue-button" mdbWavesEffect>{{ 'rent.button-title' | translate:lang }}</button>
                                         </div>
-                                        <div (appAppear)="setAnimationOnScroll('rentLectory')"></div>
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation" [ngClass]="{'rotateInDownRight': animation.rentConference, 'visible': animation.rentConference}">
+                                    <div (appAppear)="setAnimationOnScroll('rentLectory')"></div>
                                     <div class="square green-border">
                                         <p class="price green-text">{{ 'rent.conference-price' | translate:lang }}<span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
                                         <div>
@@ -147,16 +147,16 @@
                             <p class="text__adittional">{{ 'master-classes.adittional-text' | translate:lang }}</p>
                         </div>
                     </div>
-                    <div class="row" (appAppear)="setAnimationOnScroll('masterContent')">
+                    <div class="row no-overflow" (appAppear)="setAnimationOnScroll('masterContent')">
                         <div class="col col-12 col-lg-10 square m-auto invis animation" [ngClass]="{'zoomIn': animation.masterContent, 'visible': animation.masterContent}">
                             <div class="row h-100">
                                 <div class="col col-12 mt-5 square__content invis animation" [ngClass]="{'fadeInRightBig': animation.masterPhone, 'visible': animation.masterPhone}">
                                     <div class="square__title text-right">{{ 'master-classes.phone-me' | translate:lang }}</div>
-                                    <div class="square__text text-right" (appAppear)="setAnimationOnScroll('masterPhone')">{{ 'phone' | translate:lang }}</div>
+                                    <div class="square__text-tel text-right" (appAppear)="setAnimationOnScroll('masterPhone')">{{ 'phone' | translate:lang }}</div>
                                 </div>
                                 <div class="col col-12 mt-auto mb-5 square__content invis animation" [ngClass]="{'fadeInLeftBig': animation.masterEmail, 'visible': animation.masterEmail}">
                                     <div class="square__title text-left">{{ 'master-classes.mail-me' | translate:lang }}</div>
-                                    <div class="square__text text-left" (appAppear)="setAnimationOnScroll('masterEmail')">{{ 'email' | translate:lang }}</div>
+                                    <div class="square__text square__text-email text-left" (appAppear)="setAnimationOnScroll('masterEmail')">{{ 'email' | translate:lang }}</div>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@
                             </agm-map>
                         </div>
                         <div (appAppear)="setAnimationOnScroll('mapDescription')"></div>
-                        <div class="col col-12 col-lg-4 position-absolute contacts__text">
+                        <div class="col col-12 col-lg-4 position-absolute contacts__text no-overflow">
                             <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation" [ngClass]="{'jackInTheBox': animation.mapDescription, 'visible': animation.mapDescription}">
                                 <div class="square__title">{{ 'contacts.phone' | translate:lang }}</div>
                                 <div class="square__text">{{ 'phone' | translate:lang }}</div>
@@ -201,10 +201,10 @@
             <div class="col col-12 col-lg-4 d-flex justify-content-center">
                 <img src="assets/images/logo.svg" alt="lazy-school">
             </div>
-            <div class="col col-12 col-lg-4 black-text d-inline-flex d-flex justify-content-center mt-2 mt-lg-0">
-                <a class="nav-link" href="#"><i class="fa fa-4x fa-facebook"></i></a>
-                <a class="nav-link" href="#"><i class="fa fa-4x fa-twitter"></i></a>
-                <a class="nav-link" href="#"><i class="fa fa-4x fa-instagram"></i></a>
+            <div class="col col-12 col-lg-4 d-inline-flex d-flex justify-content-center mt-2 mt-lg-0">
+                <a class="nav-link black-text" href="#"><i class="fa fa-4x fa-facebook"></i></a>
+                <a class="nav-link black-text" href="#"><i class="fa fa-4x fa-twitter"></i></a>
+                <a class="nav-link black-text" href="#"><i class="fa fa-4x fa-instagram"></i></a>
             </div>
         </div>
     </div>

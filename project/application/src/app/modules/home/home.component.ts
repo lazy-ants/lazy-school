@@ -29,8 +29,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
     lat = 51.678418;
     lng = 7.809007;
 
-    frame: any;
-
     animation = {
         aboutUs: false,
         rentLectory: false,
@@ -38,8 +36,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
         masterContent: false,
         masterPhone: false,
         masterEmail: false,
-        mapDescription: false
-    }
+        mapDescription: false,
+    };
 
     lectoryFormModalName = new FormControl('', Validators.required);
     lectoryFormModalPhone = new FormControl('', Validators.required);
