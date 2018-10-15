@@ -428,6 +428,9 @@
     .infinite {
         animation-iteration-count: infinite;
     }
+    .sec-delay {
+        animation-delay: 1s;
+    }
 }
 
 .invis {
@@ -542,7 +545,10 @@
         .submit-button {
             width: 200px;
             height: 40px;
+            font-size: 14px;
             display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0 auto;
         }
     }

@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
     lang: string;
     inView: string;
 
-    title = 'My AGM map';
-    lat = 51.678418;
-    lng = 7.809007;
+    title = 'lazy-school';
+    lat = 50.002257;
+    lng = 36.250887;
 
     animation = {
         aboutUs: false,
