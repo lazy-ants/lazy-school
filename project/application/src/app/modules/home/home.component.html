@@ -75,20 +75,20 @@
     </links>
 </mdb-navbar>
 
-<main class="main no-overflow pb-5">
+<main class="main no-overflow pb-5" (appAppear)="setAnimationOnScroll('aboutUs')">
     <div class="container" in-view-container (inview)="isElementInView($event)" [bestMatch]="true">
         <div class="row mt-5 pt-lg-5 pt-0">
             <div class="col text-center">
-                <section id="about-us" class="about-us" (appAppear)="setAnimationOnScroll('aboutUs')" in-view-item [data]="'about-us'">
+                <section id="about-us" class="about-us" in-view-item [data]="'about-us'">
                     <div class="row">
                         <div class="col col-12 col-lg-7 p-0">
-                            <div class="about-us__photo invis animation sec-delay" [ngClass]="{'fadeInRightBig': animation.aboutUs, 'visible': animation.aboutUs}">
+                            <div class="about-us__photo invis animation" [ngClass]="{'fadeInRightBig': animation.aboutUs, 'visible': animation.aboutUs}">
                                 <img class="image" src="assets/images/classroom.svg" alt="class-room">
                             </div>
                         </div>
                         <div class="col col-12 col-lg-5">
                             <div class="row mt-lg-5 about-us__description">
-                                <div class="col col-12 invis animation sec-delay" [ngClass]="{'fadeInUpBig': animation.aboutUs, 'visible': animation.aboutUs}">
+                                <div class="col col-12 invis animation" [ngClass]="{'fadeInUpBig': animation.aboutUs, 'visible': animation.aboutUs}">
                                     <p class="subtitle">{{ 'about-us.subtitle' | translate:lang }}</p>
                                     <p class="title">{{ 'about-us.title' | translate:lang }}</p>
                                     <p class="text">{{ 'about-us.main-text' | translate:lang }}</p>
