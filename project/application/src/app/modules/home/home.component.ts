@@ -81,8 +81,16 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
             const element = document.querySelector(`#${fragment}`);
             if (!!element) {
                 element.scrollIntoView(settings);
+                const width = this.getWindowWidth();
+                if (width < 992) {
+                    (document.querySelector('button.navbar-toggler') as HTMLElement).click();
+                }
             }
         }, 300);
+    }
+
+    private getWindowWidth() {
+        return window.innerWidth || 0;
     }
 
     public setAnimationOnScroll(section) {
