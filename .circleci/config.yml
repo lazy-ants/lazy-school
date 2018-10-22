@@ -7,6 +7,10 @@ jobs:
         working_directory: ~/lazy-school
         docker:
             - image: circleci/node:8.9.0-browsers
+        environment:
+            FINGERPRINT: fd:7f:a9:ca:47:78:c5:86:af:eb:76:81:e1:22:5e:a9
+            SSH_USER: la
+            SSH_HOST: lazy-school.lazy-ants.com
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
@@ -41,6 +45,19 @@ jobs:
                 keys:
                 - v1-dependencies-{{ checksum "project/application/package.json" }}
                 - v1-dependencies-
+            # Add fingerprint
+            - add_ssh_keys:
+                fingerprints:
+                    - "$FINGERPRINT" #https://circleci.com/docs/2.0/add-ssh-key
+            # Keyscan $SSH_HOST (HACK)
+            - run:
+                name: Keyscan $SSH_HOST (HACK)
+                command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+            # Copy ng-uikit-pro-standard package from the server
+            - run:
+                name: Copy ng-uikit-pro-standard package from the server
+                command: |
+                    scp $SSH_USER@$SSH_HOST:/home/la/lazy-school.lazy-ants.com-assets/ng-uikit-pro-standard-6.2.4.tgz /home/circleci/lazy-school/project/application
             # Install project dependencies
             - run:
                 name: Install local dependencies
