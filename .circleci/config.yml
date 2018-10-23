@@ -70,7 +70,7 @@ jobs:
             # Build project
             - run:
                 name: Building
-                command: cd project/application && npm run build:ssr
+                command: cd project/application && cp src/environments/environment.prod.ts.dist src/environments/environment.prod.ts && npm run build:ssr
             # Running the Nodejs server instance
             - run:
                 name: Running the instance Nodejs server

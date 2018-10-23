@@ -40,3 +40,6 @@ Thumbs.db
 
 # ng-uikit-pro-standard
 ng-uikit-pro-standard-6.2.4.tgz
+
+# production environment
+/src/environments/environment.prod.ts

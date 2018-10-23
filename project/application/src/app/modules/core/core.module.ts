@@ -6,8 +6,6 @@ import { TransferHttpModule } from '@gorniv/ngx-transfer-http';
 import { RoutingModule } from '../routing/routing.module';
 import { SharedModule } from '../shared/shared.module';
 
-import { NgInviewModule } from 'angular-inport';
-
 @NgModule({
     imports: [
         BrowserModule.withServerTransition({ appId: 'lazy-school' }),
@@ -16,7 +14,6 @@ import { NgInviewModule } from 'angular-inport';
         RoutingModule,
         SharedModule,
         TransferHttpModule,
-        NgInviewModule,
     ],
 })
 export class CoreModule {}

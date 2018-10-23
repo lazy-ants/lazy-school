@@ -12,6 +12,7 @@ cd lazy-school
 ```
 cp docker/nginx/nginx.conf.dist docker/nginx/nginx.conf
 cp docker-compose.override.yml.dist docker-compose.override.yml
+cp src/environments/environment.prod.ts.dist src/environments/environment.prod.ts
 ```
 
 ## BUILD APPLICATION
