@@ -1,17 +1,8 @@
-import {
-    Component,
-    OnInit,
-    OnDestroy,
-    Inject,
-    PLATFORM_ID,
-    AfterViewInit,
-    ChangeDetectorRef,
-    AfterViewChecked,
-} from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { OnInit, Inject, OnDestroy, Component, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Language } from 'angular-l10n';
 import { FormControl, Validators } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
+import { Language } from 'angular-l10n';
 
 import { SeoPropertiesService } from '../core/services/seo-properties/seo-properties.service';
 
@@ -20,14 +11,14 @@ import { SeoPropertiesService } from '../core/services/seo-properties/seo-proper
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterViewChecked {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     @Language()
     lang: string;
     inView: string;
-
     title = 'lazy-school';
     lat = 50.002257;
     lng = 36.250887;
+    animationDelay: any;
 
     animation = {
         aboutUs: false,
@@ -41,26 +32,21 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
 
     lectoryFormModalName = new FormControl('', Validators.required);
     lectoryFormModalPhone = new FormControl('', Validators.required);
-    conferenceFormModalName = new FormControl('', Validators.required);
     loginFormModalPassword = new FormControl('', Validators.required);
+    conferenceFormModalName = new FormControl('', Validators.required);
 
     constructor(
         private router: Router,
         private route: ActivatedRoute,
-        private cdRef: ChangeDetectorRef,
         private seoPropertiesService: SeoPropertiesService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {}
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.setSeoProps();
     }
 
-    ngAfterViewChecked() {
-        this.cdRef.detectChanges();
-    }
-
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         if (isPlatformBrowser(this.platformId)) {
             // Be attention! This statement is required by the Angular Universal's bug
             // I found today. The ngOnDestroy() hook calls every time on the server side
@@ -70,44 +56,54 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
     }
 
     ngAfterViewInit(): void {
-        this.route.fragment.subscribe(fragment => this.scrollToTheElement(fragment));
+        this.route.fragment.subscribe(fragment => {
+            if (isPlatformBrowser(this.platformId)) {
+                clearTimeout(this.animationDelay);
+                this.animationDelay = setTimeout(() => {
+                    this.scrollToTheElement(fragment);
+                }, 300);
+            } else {
+                this.scrollToTheElement(fragment);
+            }
+        });
     }
 
     public scrollToTheElement(
         fragment: string,
         settings: any = { behavior: 'smooth', block: 'center', inline: 'center' }
-    ) {
-        setTimeout(() => {
-            const element = document.querySelector(`#${fragment}`);
-            if (!!element) {
-                element.scrollIntoView(settings);
-                const width = this.getWindowWidth();
-                const activeMobileNav = document.querySelector('.show') ? true : false;
-                if (width < 992 && activeMobileNav) {
-                    (document.querySelector('button.navbar-toggler') as HTMLElement).click();
-                }
+    ): void {
+        const element = document.querySelector(`#${fragment}`);
+        if (!!element) {
+            this.inView = fragment;
+            element.scrollIntoView(settings);
+            const width = this.getWindowWidth();
+            const activeMobileNav = document.querySelector('.show') ? true : false;
+            if (width < 992 && activeMobileNav) {
+                (document.querySelector('button.navbar-toggler') as HTMLElement).click();
             }
-        }, 300);
+        }
     }
 
-    private getWindowWidth() {
-        return window.innerWidth || 0;
-    }
-
-    public setAnimationOnScroll(section) {
+    public setAnimationOnScroll(section: string): void {
         this.animation[section] = true;
     }
 
-    public scrollToFragment(fragment) {
+    public scrollToFragment(fragment): void {
         this.router.navigated = false;
         this.router.navigate(['/'], { fragment: `${fragment}` });
     }
 
-    public isElementInView(event): void {
-        this.inView = event.data;
+    public isElementInView(event: any = {}): void {
+        if (!!event && event.data) {
+            this.scrollToFragment(event.data);
+        }
     }
 
-    private setSeoProps() {
+    private setSeoProps(): void {
         this.seoPropertiesService.setSeoProps(this.route.snapshot.data.seoProps);
+    }
+
+    private getWindowWidth(): number {
+        return window.innerWidth || 0;
     }
 }
