@@ -82,18 +82,18 @@
                 <section id="about-us" class="about-us" in-view-item [data]="'about-us'">
                     <div class="row">
                         <div class="col col-12 col-lg-7 p-0">
-                            <div class="about-us__photo invis animation" [ngClass]="{'fadeInRightBig': animation.aboutUs, 'visible': animation.aboutUs}">
+                            <div class="about-us__photo invis animation fast" [ngClass]="{'fadeInRightBig': animation.aboutUs, 'visible': animation.aboutUs}">
                                 <img class="image" src="assets/images/classroom.svg" alt="class-room">
                             </div>
                         </div>
                         <div class="col col-12 col-lg-5">
                             <div class="row mt-lg-5 about-us__description">
-                                <div class="col col-12 invis animation" [ngClass]="{'fadeInUpBig': animation.aboutUs, 'visible': animation.aboutUs}">
+                                <div class="col col-12 invis animation fast" [ngClass]="{'fadeInUpBig': animation.aboutUs, 'visible': animation.aboutUs}">
                                     <p class="subtitle">{{ 'about-us.subtitle' | translate:lang }}</p>
                                     <p class="title">{{ 'about-us.title' | translate:lang }}</p>
                                     <p class="text">{{ 'about-us.main-text' | translate:lang }}</p>
                                     <p class="text">{{ 'about-us.adittional-text' | translate:lang }}</p>
-                                    <button (click)="scrollToFragment('rent')" mdbBtn type="button" color="primary" rounded="true" class="waves-light button animation infinite" mdbWavesEffect [ngClass]="{'pulse': animation.aboutUs}">{{ 'about-us.button-title' | translate:lang }}</button>
+                                    <button (click)="scrollToFragment('rent')" mdbBtn type="button" color="primary" rounded="true" class="waves-light button animation slow infinite" mdbWavesEffect [ngClass]="{'pulse': animation.aboutUs}">{{ 'about-us.button-title' | translate:lang }}</button>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="row mt-lg-5">
-                                <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation" [ngClass]="{'rotateInDownLeft': animation.rentLectory, 'visible': animation.rentLectory}">
+                                <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation fast" [ngClass]="{'fadeInLeft': animation.rentLectory, 'visible': animation.rentLectory}">
                                     <div class="square blue-border">
                                         <p class="price blue-text">{{ 'rent.lectory-price' | translate:lang }} <span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
                                         <div>
@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation" [ngClass]="{'rotateInDownRight': animation.rentConference, 'visible': animation.rentConference}">
+                                <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation fast" [ngClass]="{'fadeInRight': animation.rentConference, 'visible': animation.rentConference}">
                                     <div (appAppear)="setAnimationOnScroll('rentLectory')"></div>
                                     <div class="square green-border">
                                         <p class="price green-text">{{ 'rent.conference-price' | translate:lang }}<span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
@@ -148,13 +148,13 @@
                         </div>
                     </div>
                     <div class="row" (appAppear)="setAnimationOnScroll('masterContent')">
-                        <div class="col col-12 col-lg-10 square m-auto invis animation" [ngClass]="{'zoomIn': animation.masterContent, 'visible': animation.masterContent}">
+                        <div class="col col-12 col-lg-10 square m-auto invis animation fast" [ngClass]="{'zoomIn': animation.masterContent, 'visible': animation.masterContent}">
                             <div class="row h-100">
-                                <div class="col col-12 mt-5 square__content invis animation" [ngClass]="{'fadeInRightBig': animation.masterPhone, 'visible': animation.masterPhone}">
+                                <div class="col col-12 mt-5 square__content invis animation fast" [ngClass]="{'fadeInRightBig': animation.masterPhone, 'visible': animation.masterPhone}">
                                     <div class="square__title text-right pr-3 pr-md-0">{{ 'master-classes.phone-me' | translate:lang }}</div>
                                     <div class="square__text-tel text-right pr-3 pr-md-0" (appAppear)="setAnimationOnScroll('masterPhone')">{{ 'phone' | translate:lang }}</div>
                                 </div>
-                                <div class="col col-12 mt-auto mb-5 square__content invis animation" [ngClass]="{'fadeInLeftBig': animation.masterEmail, 'visible': animation.masterEmail}">
+                                <div class="col col-12 mt-auto mb-5 square__content invis animation fast" [ngClass]="{'fadeInLeftBig': animation.masterEmail, 'visible': animation.masterEmail}">
                                     <div class="square__title text-left pl-3 pl-md-0">{{ 'master-classes.mail-me' | translate:lang }}</div>
                                     <div class="square__text square__text-email text-left pl-3 pl-md-0" (appAppear)="setAnimationOnScroll('masterEmail')">{{ 'email' | translate:lang }}</div>
                                 </div>
@@ -179,7 +179,7 @@
                         </div>
                         <div (appAppear)="setAnimationOnScroll('mapDescription')"></div>
                         <div class="col col-12 col-lg-4 position-absolute contacts__text">
-                            <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation" [ngClass]="{'jackInTheBox': animation.mapDescription, 'visible': animation.mapDescription}">
+                            <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation fast" [ngClass]="{'jackInTheBox': animation.mapDescription, 'visible': animation.mapDescription}">
                                 <div class="square__title">{{ 'contacts.phone' | translate:lang }}</div>
                                 <div class="square__text">{{ 'phone' | translate:lang }}</div>
                                 <div class="square__title mt-4">{{ 'contacts.mail' | translate:lang }}</div>
