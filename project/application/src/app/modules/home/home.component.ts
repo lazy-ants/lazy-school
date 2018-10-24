@@ -82,7 +82,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
             if (!!element) {
                 element.scrollIntoView(settings);
                 const width = this.getWindowWidth();
-                if (width < 992) {
+                const activeMobileNav = document.querySelector('.show') ? true : false;
+                if (width < 992 && activeMobileNav) {
                     (document.querySelector('button.navbar-toggler') as HTMLElement).click();
                 }
             }
