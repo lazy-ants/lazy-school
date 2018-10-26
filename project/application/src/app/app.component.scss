@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
+    v2.0 | 20110126
+    License: none (public domain)
 */
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900');
@@ -61,10 +61,10 @@ $anim-pull-translate-out: 25%;
 $anim-shimmy-out: 12px;
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 svg { position: absolute; }

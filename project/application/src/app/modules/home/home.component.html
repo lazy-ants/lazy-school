@@ -121,10 +121,10 @@
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation fast" [ngClass]="{'fadeInRight': animation.rentConference, 'visible': animation.rentConference}">
-                                    <div (appAppear)="setAnimationOnScroll('rentConference')"></div>
                                     <div class="square green-border">
                                         <p class="price green-text">{{ 'rent.conference-price' | translate:lang }}<span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
                                         <div>
+                                            <div (appAppear)="setAnimationOnScroll('rentConference')"></div>
                                             <p class="title">{{ 'rent.conference' | translate:lang }}</p>
                                             <p class="persons">{{ 'rent.per' | translate:lang }} {{ 'rent.conference-quantity' | translate:lang }} {{ 'rent.persons' | translate:lang }}</p>
                                             <button (click)="conference.show()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button green-button" mdbWavesEffect>{{ 'rent.button-title' | translate:lang }}</button>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="master-classes" class="master-classes" (appAppear)="setAnimationOnScroll('master-classes')" in-view-item [data]="'master-classes'">
+                <section id="master-classes" class="master-classes" in-view-item [data]="'master-classes'">
                     <div class="row master-classes__description justify-content-center">
                         <div class="col col-12 d-lg-flex d-block justify-content-center align-items-center flex-lg-column">
                             <div class="twrap">
@@ -146,9 +146,10 @@
                             <p class="text__adittional">{{ 'master-classes.adittional-text' | translate:lang }}</p>
                         </div>
                     </div>
+                    <div (appAppear)="setAnimationOnScroll('masterContent')"></div>
                     <div class="row">
                         <div class="col col-12 col-lg-10 square m-auto invis animation fast" [ngClass]="{'zoomIn': animation.masterContent, 'visible': animation.masterContent}">
-                            <div class="row h-100" (appAppear)="setAnimationOnScroll('masterContent')">
+                            <div class="row h-100">
                                 <div class="col col-12 mt-5 square__content invis animation fast" [ngClass]="{'fadeInRightBig': animation.masterContent, 'visible': animation.masterContent}">
                                     <div class="square__title text-right pr-3 pr-md-0">{{ 'master-classes.phone-me' | translate:lang }}</div>
                                     <a href="tel:{{ contacts.phone }}" class="square__text-tel text-right pr-3 pr-md-0">{{ contacts.phone }}</a>
@@ -161,7 +162,7 @@
                         </div>
                     </div>
                 </section>
-                <section id="contacts" class="contacts" (appAppear)="setAnimationOnScroll('contacts')" in-view-item [data]="'contacts'">
+                <section id="contacts" class="contacts" in-view-item [data]="'contacts'">
                     <div class="row contacts__description">
                         <div class="col col-12 d-lg-flex d-block justify-content-center align-items-center flex-lg-column">
                             <div class="twrap">
@@ -170,15 +171,15 @@
                             </div>
                         </div>
                     </div>
+                    <div (appAppear)="setAnimationOnScroll('contacts')"></div>
                     <div class="row position-relative contacts__map-wrapper">
-                        <div class="col col-12 col-lg-10 pr-lg-5 p-0">
-                            <agm-map class="contacts__map" [latitude]="contacts.location.lat" [longitude]="contacts.location.lng" [disableDefaultUI]="true" [zoom]="14" [scrollwheel]="false" [zoomControl]="false">
+                        <div class="col col-12 col-lg-10 pr-lg-5 p-0 contacts__map">
+                            <agm-map *ngIf="animation.contacts" [latitude]="contacts.location.lat" [longitude]="contacts.location.lng" [disableDefaultUI]="true" [zoom]="14" [scrollwheel]="false" [zoomControl]="false">
                                 <agm-marker [latitude]="contacts.location.lat" [longitude]="contacts.location.lng"></agm-marker>
                             </agm-map>
                         </div>
-                        <div (appAppear)="setAnimationOnScroll('mapDescription')"></div>
                         <div class="col col-12 col-lg-4 position-absolute contacts__text">
-                            <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation fast" [ngClass]="{'jackInTheBox': animation.mapDescription, 'visible': animation.mapDescription}">
+                            <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation fast" [ngClass]="{'jackInTheBox': animation.contacts, 'visible': animation.contacts}">
                                 <div class="square__title">{{ 'contacts.phone' | translate:lang }}</div>
                                 <a href="tel:{{ contacts.phone }}" class="square__text">{{ contacts.phone }}</a>
                                 <div class="square__title mt-4">{{ 'contacts.mail' | translate:lang }}</div>

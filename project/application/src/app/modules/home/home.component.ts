@@ -38,9 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         rentLectory: false,
         rentConference: false,
         masterContent: false,
-        masterPhone: false,
-        masterEmail: false,
-        mapDescription: false,
+        contacts: false,
     };
 
     lectoryFormModalName = new FormControl('');
