@@ -151,11 +151,11 @@
                             <div class="row h-100" (appAppear)="setAnimationOnScroll('masterContent')">
                                 <div class="col col-12 mt-5 square__content invis animation fast" [ngClass]="{'fadeInRightBig': animation.masterContent, 'visible': animation.masterContent}">
                                     <div class="square__title text-right pr-3 pr-md-0">{{ 'master-classes.phone-me' | translate:lang }}</div>
-                                    <div class="square__text-tel text-right pr-3 pr-md-0">{{ 'phone' | translate:lang }}</div>
+                                    <a href="tel:{{ contacts.phone }}" class="square__text-tel text-right pr-3 pr-md-0">{{ contacts.phone }}</a>
                                 </div>
                                 <div class="col col-12 mt-auto mb-5 square__content invis animation fast" [ngClass]="{'fadeInLeftBig': animation.masterContent, 'visible': animation.masterContent}">
                                     <div class="square__title text-left pl-3 pl-md-0">{{ 'master-classes.mail-me' | translate:lang }}</div>
-                                    <div class="square__text square__text-email text-left pl-3 pl-md-0">{{ 'email' | translate:lang }}</div>
+                                    <a href="mailto:{{ contacts.email }}" class="square__text square__text-email text-left pl-3 pl-md-0">{{ contacts.email }}</a>
                                 </div>
                             </div>
                         </div>
@@ -172,17 +172,17 @@
                     </div>
                     <div class="row position-relative contacts__map-wrapper">
                         <div class="col col-12 col-lg-10 pr-lg-5 p-0">
-                            <agm-map class="contacts__map" [latitude]="location.lat" [longitude]="location.lng" [disableDefaultUI]="true" [zoom]="14" [scrollwheel]="false" [zoomControl]="false">
-                                <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+                            <agm-map class="contacts__map" [latitude]="contacts.location.lat" [longitude]="contacts.location.lng" [disableDefaultUI]="true" [zoom]="14" [scrollwheel]="false" [zoomControl]="false">
+                                <agm-marker [latitude]="contacts.location.lat" [longitude]="contacts.location.lng"></agm-marker>
                             </agm-map>
                         </div>
                         <div (appAppear)="setAnimationOnScroll('mapDescription')"></div>
                         <div class="col col-12 col-lg-4 position-absolute contacts__text">
                             <div class="square d-flex flex-column justify-content-center text-left p-4 invis animation fast" [ngClass]="{'jackInTheBox': animation.mapDescription, 'visible': animation.mapDescription}">
                                 <div class="square__title">{{ 'contacts.phone' | translate:lang }}</div>
-                                <div class="square__text">{{ 'phone' | translate:lang }}</div>
+                                <a href="tel:{{ contacts.phone }}" class="square__text">{{ contacts.phone }}</a>
                                 <div class="square__title mt-4">{{ 'contacts.mail' | translate:lang }}</div>
-                                <div class="square__text">{{ 'email' | translate:lang }}</div>
+                                <a href="mailto:{{ contacts.email }}" class="square__text">{{ contacts.email }}</a>
                                 <div class="square__title mt-4">{{ 'contacts.work-time' | translate:lang }}</div>
                                 <div class="square__text">{{ 'contacts.from' | translate:lang }} {{ 'time-from' | translate:lang }} {{ 'contacts.to' | translate:lang }} {{ 'time-to' | translate:lang }}</div>
                             </div>
@@ -201,9 +201,9 @@
                 <img src="assets/images/logo.svg" alt="lazy-school">
             </div>
             <div class="col col-12 col-lg-4 d-inline-flex d-flex justify-content-center mt-2 mt-lg-0">
-                <a class="nav-link black-text" href="#"><i class="fa fa-4x fa-facebook"></i></a>
-                <a class="nav-link black-text" href="#"><i class="fa fa-4x fa-twitter"></i></a>
-                <a class="nav-link black-text" href="#"><i class="fa fa-4x fa-instagram"></i></a>
+                <a class="nav-link black-text" href="{{ 'social-links.facebook' | translate:lang }}"><i class="fa fa-4x fa-facebook"></i></a>
+                <a class="nav-link black-text" href="{{ 'social-links.twitter' | translate:lang }}"><i class="fa fa-4x fa-twitter"></i></a>
+                <a class="nav-link black-text" href="{{ 'social-links.instagram' | translate:lang }}"><i class="fa fa-4x fa-instagram"></i></a>
             </div>
         </div>
     </div>

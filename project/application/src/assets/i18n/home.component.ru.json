@@ -1,5 +1,9 @@
 {
     "title": "Главная страница",
+    "location": {
+        "lat": 50.002257,
+        "lng": 36.250887
+    },
     "phone": "+38(093) 937 99  92",
     "email": "lazyschool@com.ua",
     "time-from": "10:00",
@@ -70,5 +74,10 @@
             "title": "Заполните заявку на аренду лектория.",
             "subtitle": "Наш менеджер вам перезвонит"
         }
+    },
+    "social-links": {
+        "facebook": "https://facebook.com",
+        "twitter": "https://twitter.com",
+        "instagram": "https://instagram.com"
     }
 }
