@@ -2,7 +2,7 @@ import { OnInit, Inject, OnDestroy, Component, PLATFORM_ID, AfterViewInit } from
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Language } from 'angular-l10n';
+import { Language, TranslationService } from 'angular-l10n';
 
 import { SeoPropertiesService } from '../core/services/seo-properties/seo-properties.service';
 
@@ -16,9 +16,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     lang: string;
     currentNavItem: string;
     title = 'lazy-school';
-    location: any = {
-        lat: 50.002257,
-        lng: 36.250887,
+    contacts: any = {
+        location: {},
+        phone: '',
+        email: '',
     };
     activateSectionAvailable = false;
     activateSectionPromise: any;
@@ -41,12 +42,18 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor(
         private route: ActivatedRoute,
         private seoPropertiesService: SeoPropertiesService,
+        private translation: TranslationService,
         @Inject(PLATFORM_ID) private platformId: Object,
         @Inject(DOCUMENT) private document: any
     ) {}
 
     ngOnInit(): void {
         this.setSeoProps();
+        this.translation.translationChanged().subscribe(() => {
+            this.contacts.location = this.translation.translate('location');
+            this.contacts.phone = this.translation.translate('phone');
+            this.contacts.email = this.translation.translate('email');
+        });
     }
 
     ngOnDestroy(): void {
@@ -93,13 +100,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         this.seoPropertiesService.setSeoProps(this.route.snapshot.data.seoProps);
     }
 
-    private scrollToSection(
-        section: string,
-        settings: any = { behavior: 'smooth', block: 'center', inline: 'center' }
-    ): void {
+    private scrollToSection(section: string): void {
         const element = this.document.querySelector(`#${section}`);
-        if (!!element) {
-            element.scrollIntoView(settings);
+        if (!!element && isPlatformBrowser(this.platformId)) {
+            const width = this.getWindowWidth();
+            window.scrollTo({
+                top: width < 992 ? element.offsetTop - 50 : element.offsetTop,
+                behavior: 'smooth',
+            });
         }
     }
 

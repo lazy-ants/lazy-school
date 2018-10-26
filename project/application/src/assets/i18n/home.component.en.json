@@ -1,9 +1,83 @@
 {
-    "title": "Home page",
+    "title": "Главная страница",
+    "location": {
+        "lat": 50.002257,
+        "lng": 36.250887
+    },
+    "phone": "+38(093) 937 99  92",
+    "email": "lazyschool@com.ua",
+    "time-from": "10:00",
+    "time-to": "22:00",
+    "nav": {
+        "about-us": "О нас",
+        "rent": "Аренда залов",
+        "master-classes": "Мастерклассы",
+        "contacts": "Контакты"
+    },
+    "about-us": {
+        "subtitle": "Немного о нас",
+        "title": "Lazy School",
+        "main-text": "Хотите провести свое образовательное мероприятие, или мастеркласс? Тогда вы точно попали по адресу. Мы предоставляем помещения для лекций, конференций и мастерклассов.",
+        "adittional-text": "У нас вы можете комфортно провести любое мероприятие!",
+        "button-title": "Хочу выбрать зал"
+    },
+    "rent": {
+        "subtitle": "Арендовать зал",
+        "title": "Аренда залов",
+        "main-text": "Для бесплатных детских мероприятий, курсов, аренда бесплатна",
+        "button-title": "Арендовать зал",
+        "currency": "грн",
+        "lectory": "Лекторий",
+        "lectory-quantity": "20",
+        "lectory-price": "7000",
+        "conference": "Конференц зал",
+        "conference-quantity": "15",
+        "conference-price": "5000",
+        "per": "На",
+        "persons": "человек"
+    },
+    "master-classes": {
+        "subtitle": "Делитесь зананиями!",
+        "title": "Мастерклассы",
+        "main-text": "Ты профессионал в какой либо области?",
+        "adittional-text": "Свяжись с нами по телефону или почте и мы поможем тебе провести мастеркласс!",
+        "phone-me": "Звони по телефону",
+        "mail-me": "Или напиши нам на почту"
+    },
+    "contacts": {
+        "subtitle": "Контактная информация",
+        "title": "Контакты",
+        "main-text": "Ты профессионал в какой либо области?",
+        "phone": "Наш телефон",
+        "mail": "Наша почта",
+        "work-time": "Мы работаем",
+        "from": "с",
+        "to": "до"
+    },
     "greetings": {
-        "hello": "Hello"
+        "hello": "Привет"
     },
     "actions": {
-        "open-menu": "Swipe to the right to open the menu"
+        "open-menu": "Потяни вправо для открытия меню"
+    },
+    "modal": {
+        "button": "Отправить заявку",
+        "form": {
+            "name": "Ваше имя:",
+            "phone": "Ваш  номер телефона:"
+        },
+        "conference": {
+            "title": "Заполните заявку на аренду конференц зала.",
+            "subtitle": "Наш менеджер вам перезвонит"
+        },
+        "lectory": {
+            "title": "Заполните заявку на аренду лектория.",
+            "subtitle": "Наш менеджер вам перезвонит"
+        }
+    },
+    "social-links": {
+        "facebook": "https://facebook.com",
+        "twitter": "https://twitter.com",
+        "instagram": "https://instagram.com"
     }
 }
