@@ -6,7 +6,9 @@
 
 .main {
     min-height: 1300px;
-
+    @media (max-width: 892px) {
+        padding-bottom: 7rem !important;
+    }
     .about-us {
         margin: 75px 0 100px;
         @media (max-width: 575px) {
@@ -282,8 +284,9 @@
 
     .contacts {
         margin-bottom: 100px;
-        @media (max-width: 575px) {
-            margin-bottom: 65px;
+        @media (max-width: 892px) {
+            padding-bottom: 120px;
+            margin-bottom: 60px;
         }
         &__description {
             text-align: left;
@@ -324,6 +327,11 @@
         &__map {
             height: 470px;
         }
+        &-wrapper {
+            @media (max-width: 892px) {
+                margin-bottom: 180px;
+            }
+        }
         &__text {
             right: 0;
             top: 0;
@@ -334,6 +342,10 @@
                 height: 360px;
                 margin: 55px 0;
                 position: relative;
+                @media (max-width: 892px) {
+                    height: 360px;
+                    margin: 310px 0 0;
+                }
                 &__content {
                     z-index: 1;
                 }
@@ -356,28 +368,27 @@
 @media (min-width: 1200px) {
     .main {
         .master-classes {
-            margin-top: 100px;
             .square {
                 background-color: #56CCF220;
                 border-radius: 4px;
                 height: 300px;
                 position: relative;
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        background-color: #ffffff;
-                        left: 0; top: 0;
-                        height: 100%;
-                        width: 150px;
-                    }
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        background-color: #ffffff;
-                        right: 0; top: 0;
-                        height: 100%;
-                        width: 150px;
-                    }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    background-color: #ffffff;
+                    left: 0; top: 0;
+                    height: 100%;
+                    width: 150px;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: #ffffff;
+                    right: 0; top: 0;
+                    height: 100%;
+                    width: 150px;
+                }
             }
         }
     }
@@ -391,50 +402,21 @@
                 border-radius: 4px;
                 height: 300px;
                 position: relative;
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        background-color: #ffffff;
-                        left: 0; top: 0;
-                        height: 100%;
-                        width: 15px;
-                    }
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        background-color: #ffffff;
-                        right: 0; top: 0;
-                        height: 100%;
-                        width: 15px;
-                    }
-            }
-        }
-
-        .contacts {
-            &__map-wrapper {
-                margin-bottom: 180px;
-            }
-            &__text {
-                .square {
-                    background-color: #56CCF0;
-                    box-shadow: 0px 5px 20px 0px #56CCF2;
-                    border-radius: 4px;
-                    height: 360px;
-                    margin: 310px 0 55px;
-                    position: relative;
-                    &__content {
-                        z-index: 1;
-                    }
-                    &__title {
-                        font-size: 24px;
-                        font-weight: 700;
-                        color: #ffffff;
-                    }
-                    &__text {
-                        font-size: 18px;
-                        font-weight: bold;
-                        color: #ffffff;
-                    }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    background-color: #ffffff;
+                    left: 0; top: 0;
+                    height: 100%;
+                    width: 15px;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: #ffffff;
+                    right: 0; top: 0;
+                    height: 100%;
+                    width: 15px;
                 }
             }
         }

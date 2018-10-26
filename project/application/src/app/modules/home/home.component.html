@@ -53,8 +53,8 @@
 </div>
 
 <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ie-nav" [containerInside]="true">
-    <mdb-navbar-brand>
-        <a class="logo navbar-brand" href="#about-us"><img src="assets/images/logo.svg" alt="lazy-school" (click)="navigateToSection('about-us')"></a>
+    <mdb-navbar-brand (click)="navigateToSection('about-us'); false">
+        <a class="logo navbar-brand" href="#about-us"><img src="assets/images/logo.svg" alt="lazy-school"></a>
     </mdb-navbar-brand>
     <links>
         <ul class="navbar-nav ml-auto">
@@ -113,6 +113,7 @@
                                     <div class="square blue-border">
                                         <p class="price blue-text">{{ 'rent.lectory-price' | translate:lang }} <span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
                                         <div>
+                                            <div (appAppear)="setAnimationOnScroll('rentLectory')"></div>
                                             <p class="title">{{ 'rent.lectory' | translate:lang }}</p>
                                             <p class="persons">{{ 'rent.per' | translate:lang }} {{ 'rent.lectory-quantity' | translate:lang }} {{ 'rent.persons' | translate:lang }}</p>
                                             <button (click)="lectory.show()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button blue-button" mdbWavesEffect>{{ 'rent.button-title' | translate:lang }}</button>
@@ -120,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="col col-12 col-lg-4 ml-auto mr-auto mt-5 mt-lg-1 invis animation fast" [ngClass]="{'fadeInRight': animation.rentConference, 'visible': animation.rentConference}">
-                                    <div (appAppear)="setAnimationOnScroll('rentLectory')"></div>
+                                    <div (appAppear)="setAnimationOnScroll('rentConference')"></div>
                                     <div class="square green-border">
                                         <p class="price green-text">{{ 'rent.conference-price' | translate:lang }}<span class="price__currency">{{ 'rent.currency' | translate:lang }}</span></p>
                                         <div>
@@ -128,7 +129,6 @@
                                             <p class="persons">{{ 'rent.per' | translate:lang }} {{ 'rent.conference-quantity' | translate:lang }} {{ 'rent.persons' | translate:lang }}</p>
                                             <button (click)="conference.show()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button green-button" mdbWavesEffect>{{ 'rent.button-title' | translate:lang }}</button>
                                         </div>
-                                        <div (appAppear)="setAnimationOnScroll('rentConference')"></div>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
 
 <footer class="page-footer font-small white">
     <div class="container">
-        <div class="row mb-5 mt-5 justify-content-lg-between">
+        <div class="row mb-5 justify-content-lg-between">
             <div class="col col-12 col-lg-4 d-flex justify-content-center">
                 <img src="assets/images/logo.svg" alt="lazy-school">
             </div>

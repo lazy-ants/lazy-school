@@ -93,13 +93,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         this.seoPropertiesService.setSeoProps(this.route.snapshot.data.seoProps);
     }
 
-    private scrollToSection(
-        section: string,
-        settings: any = { behavior: 'smooth', block: 'center', inline: 'center' }
-    ): void {
+    private scrollToSection(section: string): void {
         const element = this.document.querySelector(`#${section}`);
         if (!!element) {
-            element.scrollIntoView(settings);
+            const width = this.getWindowWidth();
+            const diff = width < 992
+                ? element.offsetTop - window.scrollY - 50
+                : element.offsetTop - window.scrollY;
+            window.scrollBy({top: diff, left: 0, behavior: 'smooth' });
         }
     }
 
