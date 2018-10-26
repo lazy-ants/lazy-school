@@ -1,4 +1,3 @@
-
 <div mdbModal #lectory="mdbModal" class="modal fade left" id="frameModalLectory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content my-modal m-2 m-md-auto">
@@ -44,7 +43,7 @@
                     </div>
                     <div class="md-form mb-md-4 m-0">
                         <p class="label mb-2 mb-md-2 mb-lg-2 mt-2 mt-md-0">{{ 'modal.form.phone' | translate:lang }}</p>
-                        <input type="tel" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control validate inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective>
+                        <input type="tel" id="defaultForm-pass" [formControl]="conferenceFormModalPhone" class="form-control validate inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective>
                     </div>
                 </div>
                 <button (click)="conference.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button green-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
@@ -55,20 +54,20 @@
 
 <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ie-nav" [containerInside]="true">
     <mdb-navbar-brand>
-        <a class="logo navbar-brand" href="#about-us"><img src="assets/images/logo.svg" alt="lazy-school" (click)="scrollToFragment('about-us')"></a>
+        <a class="logo navbar-brand" href="#about-us"><img src="assets/images/logo.svg" alt="lazy-school" (click)="navigateToSection('about-us')"></a>
     </mdb-navbar-brand>
     <links>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'about-us'}" (click)="scrollToFragment('about-us'); false">
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': currentNavItem === 'about-us'}" (click)="navigateToSection('about-us'); false">
                 <a class="nav-link" href="#about-us">{{ 'nav.about-us' | translate:lang }}</a>
             </li>
-            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'rent'}" (click)="scrollToFragment('rent'); false">
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': currentNavItem === 'rent'}" (click)="navigateToSection('rent'); false">
                 <a class="nav-link" href="#rent">{{ 'nav.rent' | translate:lang }}</a>
             </li>
-            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'master-classes'}" (click)="scrollToFragment('master-classes'); false">
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': currentNavItem === 'master-classes'}" (click)="navigateToSection('master-classes'); false">
                 <a class="nav-link" href="#master-classes">{{ 'nav.master-classes' | translate:lang }}</a>
             </li>
-            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': inView === 'contacts'}" (click)="scrollToFragment('contacts'); false">
+            <li class="nav-item waves-light ml-5 position-relative" mdbWavesEffect [ngClass]="{'active-view': currentNavItem === 'contacts'}" (click)="navigateToSection('contacts'); false">
                 <a class="nav-link" href="#contacts">{{ 'nav.contacts' | translate:lang }}</a>
             </li>
         </ul>
@@ -76,7 +75,7 @@
 </mdb-navbar>
 
 <main class="main no-overflow pb-5" (appAppear)="setAnimationOnScroll('aboutUs')">
-    <div class="container" in-view-container (inview)="isElementInView($event)" [bestMatch]="true">
+    <div class="container" in-view-container (inview)="activateSectionAvailable === true && activateSection($event)" [bestMatch]="true">
         <div class="row mt-5 pt-lg-5 pt-0">
             <div class="col text-center">
                 <section id="about-us" class="about-us" in-view-item [data]="'about-us'">
@@ -93,7 +92,7 @@
                                     <p class="title">{{ 'about-us.title' | translate:lang }}</p>
                                     <p class="text">{{ 'about-us.main-text' | translate:lang }}</p>
                                     <p class="text">{{ 'about-us.adittional-text' | translate:lang }}</p>
-                                    <button (click)="scrollToFragment('rent')" mdbBtn type="button" color="primary" rounded="true" class="waves-light button animation slow infinite" mdbWavesEffect [ngClass]="{'pulse': animation.aboutUs}">{{ 'about-us.button-title' | translate:lang }}</button>
+                                    <button (click)="navigateToSection('rent')" mdbBtn type="button" color="primary" rounded="true" class="waves-light button animation slow infinite" mdbWavesEffect [ngClass]="{'pulse': animation.aboutUs}">{{ 'about-us.button-title' | translate:lang }}</button>
                                 </div>
                             </div>
                         </div>
@@ -173,8 +172,8 @@
                     </div>
                     <div class="row position-relative contacts__map-wrapper">
                         <div class="col col-12 col-lg-10 pr-lg-5 p-0">
-                            <agm-map class="contacts__map" [latitude]="lat" [longitude]="lng" [disableDefaultUI]="true" [zoom]="14" [scrollwheel]="false" [zoomControl]="false">
-                                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                            <agm-map class="contacts__map" [latitude]="location.lat" [longitude]="location.lng" [disableDefaultUI]="true" [zoom]="14" [scrollwheel]="false" [zoomControl]="false">
+                                <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
                             </agm-map>
                         </div>
                         <div (appAppear)="setAnimationOnScroll('mapDescription')"></div>
