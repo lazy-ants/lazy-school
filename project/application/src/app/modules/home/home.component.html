@@ -12,14 +12,14 @@
                 <div class="my-modal__content mb-4 mb-md-1">
                     <div class="md-form m-0">
                         <p class="label mb-2 mb-md-2 mb-lg-2">{{ 'modal.form.name' | translate:lang }}</p>
-                        <input type="email" id="defaultForm-email" [formControl]="lectoryFormModalName" class="form-control validate inputfield px-3 inputfield-blue mb-1 mb-md-3" mdbInputDirective>
+                        <input type="email" [formControl]="lectoryFormModalName" class="form-control inputfield px-3 inputfield-blue mb-1 mb-md-3" mdbInputDirective [mdbValidate]="false">
                     </div>
                     <div class="md-form mb-md-4 m-0">
                         <p class="label mb-2 mb-md-2 mb-lg-2 mt-2 mt-md-0">{{ 'modal.form.phone' | translate:lang }}</p>
-                        <input type="tel" id="defaultForm-pass" [formControl]="lectoryFormModalPhone" class="form-control validate inputfield px-3 inputfield-blue mb-1 mb-md-3" mdbInputDirective>
+                        <input type="tel" [formControl]="lectoryFormModalPhone" class="form-control inputfield px-3 inputfield-blue mb-1 mb-md-3" mdbInputDirective [mdbValidate]="false">
                     </div>
                 </div>
-                <button (click)="lectory.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button blue-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
+                <button (click)="lectoryBooking(); lectory.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button blue-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
             </div>
         </div>
     </div>
@@ -39,14 +39,14 @@
                 <div class="my-modal__content mb-4 mb-md-1">
                     <div class="md-form m-0">
                         <p class="label mb-2 mb-md-2 mb-lg-2">{{ 'modal.form.name' | translate:lang }}</p>
-                        <input type="email" id="defaultForm-email" [formControl]="conferenceFormModalName" class="form-control validate inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective>
+                        <input type="email" [formControl]="conferenceFormModalName" class="form-control inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective [mdbValidate]="false">
                     </div>
                     <div class="md-form mb-md-4 m-0">
                         <p class="label mb-2 mb-md-2 mb-lg-2 mt-2 mt-md-0">{{ 'modal.form.phone' | translate:lang }}</p>
-                        <input type="tel" id="defaultForm-pass" [formControl]="conferenceFormModalPhone" class="form-control validate inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective>
+                        <input type="tel" [formControl]="conferenceFormModalPhone" class="form-control inputfield px-3 inputfield-green mb-1 mb-md-3" mdbInputDirective [mdbValidate]="false">
                     </div>
                 </div>
-                <button (click)="conference.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button green-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
+                <button (click)="conferenceBooking(); conference.hide()" mdbBtn type="button" color="primary" rounded="true" class="waves-light button submit-button green-button" mdbWavesEffect>{{ 'modal.button' | translate:lang }}</button>
             </div>
         </div>
     </div>

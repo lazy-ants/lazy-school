@@ -7,6 +7,8 @@ import { enableProdMode, ValueProvider } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
+import * as nodeMailer from 'nodemailer';
+import * as bodyParser from 'body-parser';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -56,8 +58,44 @@ app.engine('html', (_, options, callback) => {
     });
 });
 
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post('/api/send-email', (req, res) => {
+    const { emailSendConfig, emailTo, subject, body } = req.body;
+    const { authHost, authPort, authUser, authPass, emailFrom } = emailSendConfig;
+    let transporter = nodeMailer.createTransport({
+        host: authHost,
+        port: authPort,
+        auth: {
+            user: authUser,
+            pass: authPass,
+        },
+    });
+
+    let mailOptions = {
+        from: emailFrom,
+        to: emailTo,
+        subject,
+        html: body,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).send({ text: 'Fail' });
+        }
+
+        return res.status(200).send({ text: 'Success' });
+    });
+});
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));

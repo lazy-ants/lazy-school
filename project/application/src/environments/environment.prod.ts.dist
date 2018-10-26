@@ -2,4 +2,11 @@ export const environment = {
     production: true,
     ssr: true,
     agmCoreModuleApiKey: '',
+    emailSendConfig: {
+        authHost: '',
+        authPort: 587,
+        authUser: '',
+        authPass: '',
+        emailFrom: '',
+    },
 };

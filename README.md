@@ -25,7 +25,7 @@ docker exec -ti lazy-school_nodejs npm install
 docker exec -ti lazy-school_nodejs bash -c 'npm start'
 ```
 
-- in prod mode (bash deploy.sh as quick solution)
+- in prod mode (bash deploy-circleci.sh as quick solution)
 
 ```
 docker-compose up -d --build

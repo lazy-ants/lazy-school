@@ -4,10 +4,16 @@
         "lat": 50.002257,
         "lng": 36.250887
     },
-    "phone": "+38(093) 937 99  92",
-    "email": "lazyschool@com.ua",
+    "phone": "+38(066) 11 88 298",
+    "email": "hello@lazy-ants.com",
     "time-from": "10:00",
     "time-to": "22:00",
+    "booking": {
+        "email": {
+            "lectory-subject": "Lazy School - заявка на аренду лектория",
+            "conference-subject": "Lazy School - заявка на аренду конференц зала"
+        }
+    },
     "nav": {
         "about-us": "О нас",
         "rent": "Аренда залов",
